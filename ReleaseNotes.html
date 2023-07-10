@@ -63,18 +63,52 @@ $(function() {
 </ul>
 <h1>Test Level</h1>
 <ul>
-<li>Current test level (code coverage): 75%</li>
+<li>All testing is performed with Python v3.10.</li>
 <li>Tests are performed on Windows 10 (64 bit) and Ubuntu Linux 22.04 (64bit).</li>
 <li>Limited testing is performed on Manjaro (Arch) Linux.</li>
 </ul>
 <h1>Changelog</h1>
+<h2>1.9.0 (2023/07/09)</h2>
+<ul>
+<li>A new pre-connect <code>gdb_pre_connect_hook</code> was added which is called before GDB client connects to GDB server.</li>
+<li>Internal re-work of debug monitor and gdb server creation.</li>
+<li>Ongoing internal re-structuring of the <code>DottConf</code> configuration mechanisms resulting in API changes listed below:</li>
+<li>The method <code>dott().create_gdb_server(...)</code> will be deprecated as part of API refinement. Use <code>dott().target.monitor.create_gdb_server()</code> instead.</li>
+<li>The parameter <code>jlink_serial</code> was removed from <code>dott().create_target(...)</code>.</li>
+<li>Monitor type can now be a (fully qualified) class name which is then instantiated and used.</li>
+</ul>
+<h2>1.8.1 (2023/05/27)</h2>
+<ul>
+<li>Added DottConf parameter <code>gdb_connect_timeout</code> to adjust the timeout when connecting to a GDB server instance.</li>
+<li>Added DottConf parameter <code>fixture_timeout</code> to adjust the timeout used in default fixtures when waiting for halt points.</li>
+<li>Breakpoint now interprets int location as address (no need to pass string with * prefix).</li>
+<li>Internal restructuring of DottConf.</li>
+</ul>
+<h2>1.8.0 (2023/03/17)</h2>
+<ul>
+<li>Added new convenience functions <code>mem.write_intX()</code>, <code>mem.write_uintX()</code>, <code>mem.read_intX()</code> and <code>mem.read_uintX()</code>.</li>
+<li>Added quicksort example to getting started demo code.</li>
+<li>Fixed issue with J-Link extra config option.</li>
+<li>Added support to ignore timeout when disconnecting from GDB client where the target was already reset.</li>
+</ul>
+<h2>1.7.2 (2023/03/14)</h2>
+<ul>
+<li>Fixed compatibility issue with Python 3.11.</li>
+<li>Added J-Link extra config option to DottConf.</li>
+</ul>
+<h2>1.7.1 (2023/03/05)</h2>
+<ul>
+<li>Internal change: Replaced "GDB server quirks" with more generic debug monitor abstraction.</li>
+<li>Now raising exception if amount of memory allocated via alloc_type and initialization value are incompatible.</li>
+<li>New DOTT config option to specify JLink script for JLink GDB server initialization.</li>
+</ul>
 <h2>1.7.0 (2022/11/18)</h2>
 <ul>
 <li>First version of DOTT released under its new name DOTT.NG which is a fork of the original ams DOTT framework. Consider ams DOTT as deprecated. Development will continue on the DOTT.NG fork.</li>
 <li>DOTT.NG 1.7.0 is fully feature compatible with ams DOTT 1.6.4. Module names (and hence imports) remain the same.</li>
 <li>The Python packages now carry the names <code>dott-ng</code> and <code>dott-ng-runtime</code>.</li>
 <li>The included examples are now built with the free Arm GNU toolchain instead of the proprietary Arm Compiler 6.</li>
-<li>Fixed (cosmetic) issue where gdb stdout was in shown in foreground on Linux when running pytest with '-s' flag.</li>
+<li>Fixed (cosmetic) issue where gdb stdout was shown in foreground on Linux when running pytest with '-s' flag.</li>
 </ul>
 <h2>1.6.4 (2022/09/29)</h2>
 <ul>
@@ -107,8 +141,7 @@ $(function() {
 <h2>1.5.1 (2021/08/06)</h2>
 <ul>
 <li>Fixed issue where <code>dottmi.target.Target.ret()</code> when used without return value failed.</li>
-<li>Enhanced (internal) mechanism which reports the target's state (running or halted). <br  />
-</li>
+<li>Enhanced (internal) mechanism which reports the target's state (running or halted).</li>
 </ul>
 <h2>1.5.0 (2021/06/18)</h2>
 <ul>
