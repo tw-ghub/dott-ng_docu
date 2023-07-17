@@ -68,6 +68,12 @@ $(function() {
 <li>Limited testing is performed on Manjaro (Arch) Linux.</li>
 </ul>
 <h1>Changelog</h1>
+<h2>1.9.1 (2023/07/16)</h2>
+<ul>
+<li>Updated stopping of sub-threads with now stop automatically when the main thread terminates. With that, the <code>dott_auto_connect_and_disconnect</code> fixture was removed.</li>
+<li>Allow <code>app_load_elf</code> to be not set in DottConf.</li>
+<li>Changed location of <code>gdb_pre_connect_hook</code> and passing the target instance to it.</li>
+</ul>
 <h2>1.9.0 (2023/07/09)</h2>
 <ul>
 <li>A new pre-connect <code>gdb_pre_connect_hook</code> was added which is called before GDB client connects to GDB server.</li>
