@@ -68,6 +68,11 @@ $(function() {
 <li>Limited testing is performed on Manjaro (Arch) Linux.</li>
 </ul>
 <h1>Changelog</h1>
+<h2>1.9.2 (2023/07/30)</h2>
+<ul>
+<li>Allow <code>app_symbol_elf</code> to be not set in DottConf (and avoid issue when <code>app_load_elf</code> is not set either).</li>
+<li>Omit startup info messages about J-Link if monitor type is not J-Link.</li>
+</ul>
 <h2>1.9.1 (2023/07/16)</h2>
 <ul>
 <li>Updated stopping of sub-threads with now stop automatically when the main thread terminates. With that, the <code>dott_auto_connect_and_disconnect</code> fixture was removed.</li>
