@@ -68,6 +68,16 @@ $(function() {
 <li>Limited testing is performed on Manjaro (Arch) Linux.</li>
 </ul>
 <h1>Changelog</h1>
+<h2>1.13.1 (2024/02/06)</h2>
+<ul>
+<li>Enhanced thread handling for GDB MI response management.</li>
+</ul>
+<h2>1.13.0 (2024/02/06)</h2>
+<ul>
+<li>Added fast in-memory log capture utility for GDBMI tracing (enabled via environment variables: DOTT_DEBUG_GDBMI=1 and DOTT_DEBUG_GDBMI_DUMP_ON_EXIT=1).</li>
+<li>Fixed potential issue where target state was captured incorrectly in target halt/cont calls.</li>
+<li>Improved state change handling in source line and instruction stepping commands.</li>
+</ul>
 <h2>1.12.1 (2024/01/27)</h2>
 <ul>
 <li>Raise value error if zero bytes of on-target memory are requested to be allocated.</li>
