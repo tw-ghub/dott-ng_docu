@@ -68,6 +68,14 @@ $(function() {
 <li>Limited testing is performed on Manjaro (Arch) Linux.</li>
 </ul>
 <h1>Changelog</h1>
+<h2>1.16.0 (2024/05/23)</h2>
+<ul>
+<li>Updated backend to GDB version 13.2 (xpack distribution).</li>
+<li>Updated target command <code>cli_exec</code> which now returns the textual result of the CLI exec command (instead of the MI result as in the previous version).</li>
+<li>The old CLI exec behavior is still available (mostly for internal use) under the re-named function <code>cli_exec_legacy</code>.</li>
+<li>Added suppression for resource warning on pygdbmi teardown.</li>
+<li>Performance improvement of InterceptPoint by reducing TCP wait time.</li>
+</ul>
 <h2>1.15.0 (2024/04/24)</h2>
 <ul>
 <li>Added exception propagation from sub threads to main thread.</li>
