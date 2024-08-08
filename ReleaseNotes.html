@@ -63,18 +63,27 @@ $(function() {
 </ul>
 <h1>Test Level</h1>
 <ul>
-<li>All testing is performed with Python v3.10.</li>
+<li>All testing is performed with Python v3.10 and 3.12.</li>
 <li>Tests are performed on Windows 10 (64 bit) and Ubuntu Linux 22.04 (64bit).</li>
-<li>Limited testing is performed on Manjaro (Arch) Linux.</li>
+<li>Limited testing is performed on Manjaro (Arch) Linux and Windows 11.</li>
 </ul>
 <h1>Changelog</h1>
-<h2>1.16.0 (2024/05/23)</h2>
+<h2>1.17.0</h2>
 <ul>
-<li>Updated backend to GDB version 13.2 (xpack distribution).</li>
-<li>Updated target command <code>cli_exec</code> which now returns the textual result of the CLI exec command (instead of the MI result as in the previous version).</li>
-<li>The old CLI exec behavior is still available (mostly for internal use) under the re-named function <code>cli_exec_legacy</code>.</li>
-<li>Added suppression for resource warning on pygdbmi teardown.</li>
-<li>Performance improvement of InterceptPoint by reducing TCP wait time.</li>
+<li>Made NotifySubscriberExt the default implementation.</li>
+<li>Enhanced InterceptPoint performance.</li>
+<li>Update usages of <code>log.warn</code> with <code>log.warning</code>.</li>
+</ul>
+<h2>1.16.0</h2>
+<ul>
+<li>Release is considered deprecated as stability issues on Windows 11 were discovered.</li>
+</ul>
+<h2>1.15.1 (2024/06/23)</h2>
+<ul>
+<li>Changed behavior of notification propagation: Strict ordering of notifications is now maintained.</li>
+<li>Added GDBMI in memory log dump (enabled via environment variable <code>DOTT_DEBUG_GDBMI=1</code>) when HaltPoint is not reached.</li>
+<li>Added <code>target.finish()</code> which resumes execution of the current target function and returns when the function is completed. The target is then in halted state.</li>
+<li>Added reason sanity checks to calls for <code>wait_halted</code>.</li>
 </ul>
 <h2>1.15.0 (2024/04/24)</h2>
 <ul>
